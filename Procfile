@@ -1,1 +1,1 @@
-web: gunicorn checkout.wsgi
+web: gunicorn app:app
