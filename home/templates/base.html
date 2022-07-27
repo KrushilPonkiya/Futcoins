@@ -1,0 +1,1018 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no" />
+
+  <!--  -->
+  <meta name="google-signin-client_id"
+  content="858173146818-90l4t4kordv6i45cigoiamg0n8j4l0h1.apps.googleusercontent.com" />
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/static/css/slick-theme.css" />
+  <link rel="stylesheet" href="/static/css/animate.min.css" />
+  <link rel="stylesheet" href="/static/css/nice-select.css" />
+  <link rel="stylesheet" href="/static/css/main.css" />
+  <link rel="stylesheet" href="/static/css/login.css" />
+  <!-- <script src="https://www.paypal.com/sdk/js?client-id=Ac0NPdL33LNrl5iM_NScu2w3dFOV89XcgyBT71ttVa_bhYERIva2kPZWazHW3KaTpFBJW-FTePFExs7N&currency=USD"></script> -->
+
+  <!-- <script src="https://www.paypal.com/sdk/js?client-id=AV89D4bAIY_QyFNJMqv0pJO85MOGA-kUcFPTFM8rq2OIOh606P2FxS5GDj-oUIWuU7xfdJGhR986lF86&currency=USD"></script> -->
+  {% block css_link %}{% endblock css_link%}
+
+  <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<body onload="mainloading()">
+  <!-- <body onload="mainloading()"> -->
+  <!-- <div id="loading"></div> -->
+  <!-- <div id="scroll-container" class="scroll-container"> -->
+
+    <div class="totop" id="totop" onclick="toTop()" style="display: flex;">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+    <!-- <div class="totop" id="totop" onclick="toTop()">
+      <i class="fa fa-arrow-up"></i>
+    </div> -->
+    <header class="c-header">
+      <div class="c-header__main">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="c-header__main__inner">
+                <button type="button" class="d-xl-none c-header__menu__toggle" data-toggle="modal"
+                  data-target="#mobileMenu">
+                  <div onclick="hamburger()" class="hamburger" id="hamburger-1">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                  </div>
+                </button>
+
+                <div class="c-header__main__logo">
+                  <a class="c-header__main__logo__link" href="/">
+                    WOWFUT
+                  </a>
+                </div>
+
+                <div class="c-header__menu">
+                  <div class="mobile-options">
+                    {% block removeiconmobile %}
+                    
+                    {% endblock removeiconmobile %}
+                    <!-- <div class="c-header__menu__nav--item">
+                      <select class="nice-select" name="price">
+                        <option data-image="/static/images/engFlag.png"
+                          >ENG
+                        </option>
+                        <option
+                          data-image="/static/images/engFlag.png"
+                          value="1"
+                          >£ GBP</option
+                        >
+                        <option
+                          data-image="/static/images/engFlag.png"
+                          value="2"
+                          >£ GBP</option
+                        >
+                        <option
+                          data-image="/static/images/engFlag.png"
+                          value="3"
+                          >£ GBP</option
+                        >
+                      </select>
+                    </div> -->
+                    <div class="c-header__menu__nav--item">
+                      <div class="header-icons">
+                        <a onclick="showAccount(event)" class="account">
+                          <!-- <img src="/static/images/account.png"
+                            class="img-fluid" /> -->
+                            <i class="fa fa-user-o" style="font-size:24px;color:#fff"></i>
+                          </a>
+                        <a onclick="showOrders(event)" class="cart">
+                          <!-- <img src="/static/images/cart.png"
+                            class="img-fluid" /> -->
+                            <i class="material-icons" style="font-size:28px;color:#fff;cursor: pointer;">shopping_cart</i>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal fade" id="mobileMenu" tabindex="-1" aria-labelledby="mobileMenuLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="p-3">
+                          <!-- <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            id="loginclose"
+                            aria-label="Close"
+                          > -->
+                          <span aria-hidden="true">&times;</span>
+                          </button>
+                          <ul class="c-header__menu__nav--items js-menu-nav-item">
+                            <li class="c-header__menu__nav--item">
+                              <a href="#formsscroll" class="c-header__menu__nav--link">Buy Coins</a>
+                            </li>
+                            <li class="c-header__menu__nav--item">
+                              <a href="#deliveryscroll" class="c-header__menu__nav--link">DELIVERY</a>
+                            </li>
+                            <li class="c-header__menu__nav--item">
+                              <a href="#" class="c-header__menu__nav--link">FAQ
+                              </a>
+                            </li>
+                            <li class="c-header__menu__nav--item">
+                              <a href="https://wa.me/+91" class="c-header__menu__nav--link">SELL TO US
+                              </a>
+                            </li>
+                            <li class="c-header__menu__nav--item">
+                              <ul class="list-unstyled" style="display: flex;">
+                                <li>
+                                  <a href="#"><i style="font-size: 1.50rem;" class="fa fa-facebook headerfbicon"></i></a>
+                                </li>
+                                <li>
+                                  <a href="#"><i style="
+                                        font-size: 1.50rem;
+                                        margin-right: 10px;
+                                        color: #fff;
+                                      " class="fa fa-instagram"></i></a>
+                                </li>
+                                <li>
+                                  <a href="#"><i style="
+                                        font-size: 1.50rem;
+                                        margin-right: 10px;
+                                        color: #fff;
+                                      " class="fa fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                  <a href="#"><i style="
+                                        font-size: 1.50rem;
+                                        margin-right: 10px;
+                                        color: #fff;
+                                      " class="fa fa-youtube"></i></a>
+                                </li>
+                                <li>
+                                  <a href="https://wa.me/+91"><i style="
+                                        font-size: 1.50rem;
+                                        margin-right: 10px;
+                                        color: #fff;
+                                      " class="fa fa-whatsapp"></i></a>
+                                </li>
+                              </ul>
+                            </li>
+                            <li class="c-header__menu__nav--item">
+                              <a id="loginbut2" href="#" class="c-header__menu__nav--link btn-green">Sign In</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="c-header__menu__inner js-menu-inner d-none d-xl-block">
+                    <div class="c-header__menu__nav js-menu-nav">
+                      <ul class="c-header__menu__nav--items js-menu-nav-item">
+                        <li class="c-header__menu__nav--item">
+                          <a href="#formsscroll" class="c-header__menu__nav--link">Buy Coins</a>
+                        </li>
+                        <li class="c-header__menu__nav--item">
+                          <a href="#deliveryscroll" class="c-header__menu__nav--link">DELIVERY</a>
+                        </li>
+                        <li class="c-header__menu__nav--item">
+                          <a href="#" class="c-header__menu__nav--link">FAQ </a>
+                        </li>
+                        <li class="c-header__menu__nav--item">
+                          <a href="https://wa.me/+91" class="c-header__menu__nav--link">SELL TO US
+                          </a>
+                        </li>
+                        <li class="c-header__menu__nav--item">
+                          <ul class="list-unstyled" style="display: flex;">
+                            <li>
+                              <a href="#"><i style="font-size: 1.50rem;" class="fa fa-facebook headerfbicon"></i></a>
+                            </li>
+                            <li>
+                              <a href="#"><i style="font-size: 1.50rem;" class="fa fa-instagram headerinsta"></i></a>
+                            </li>
+                            <li>
+                              <a href="#"><i style="
+                                    font-size: 1.50rem;
+                                  " class="fa fa-twitter headertwitter"></i></a>
+                            </li>
+                            <li>
+                              <a href="#"><i style="
+                                    font-size: 1.50rem;
+                                  " class="fa fa-youtube headeryoutube"></i></a>
+                            </li>
+                            <li>
+                              <a href="https://wa.me/+91"><i style="
+                                    font-size: 1.50rem;
+                                  " class="fa fa-whatsapp headerwhatsapp"></i></a>
+                            </li>
+                          </ul>
+                        </li>
+                        <!-- remove icons -->
+                        {% block removeicons %}
+
+                        {% endblock removeicons %}
+                        <li class="c-header__menu__nav--item">
+                          <a id="loginbut1" class="c-header__menu__nav--link btn-green">Sign In</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="c-section c-section__banner">
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+
+      <div class="accountdiv" id="ordersdiv">
+        <div class="accclose" onclick="hideOrders(event)">x</div>
+        <div class="acctit">My Orders</div>
+        <div id="orderlist"></div>
+      </div>
+
+      <div class="accountdiv" id="trackdiv">
+        <div class="accclose" onclick="hideTrack(event)">x</div>
+        <div class="acctit" id="tracktit"></div>
+
+        <!--  -->
+        <div class="containermain1">
+          <div class="child">
+            <div class="messageofprocess">
+              <div id="ordermess"></div>
+              <!-- <div class="sharemess">
+                <div>
+                  Please share us on Instagram and Tiktok. In return claim 10%
+                  bonus of your purchase.
+                </div>
+                <div class="tiktok1">
+                  <i class="fa fa-instagram"></i>
+                  <i class="fa fa-tiktok"></i>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Rating system -->
+
+        <div class="post" id="thanks">
+          <div class="text">Thanks for your feedback!</div>
+        </div>
+
+        <div class="post" id="donereview">
+          <div class="text">Thanks for your feedback!</div>
+          <div class="donestar" id="donestar"></div>
+          <div class="donemess" id="donemess"></div>
+        </div>
+
+        <div class="container" id="reviewarea">
+          <div class="postareview">
+            ~ Post a review ~
+          </div>
+          <div class="star-widget" style="margin-top: 20px; text-align: center; margin-bottom: 20px;">
+            <div class="starscont">
+              <div data-id="1" data-select="0" onclick="selectReviewStar(this)" class="star fa fa-star"></div>
+              <div data-id="2" data-select="0" onclick="selectReviewStar(this)" class="star fa fa-star"></div>
+              <div data-select="0" data-id="3" onclick="selectReviewStar(this)" class="star fa fa-star"></div>
+              <div data-select="0" data-id="4" onclick="selectReviewStar(this)" class="star fa fa-star"></div>
+              <div data-select="0" data-id="5" onclick="selectReviewStar(this)" class="star fa fa-star"></div>
+            </div>
+            <!--  rating system form -->
+            <form>
+              <div>
+                <textarea cols="30" class="reviewtext" id="reviewtext"
+                  placeholder="Describe your experience.."></textarea>
+              </div>
+              <div>
+                <button onclick="postReview(event)" class="reviewbut">
+                  Post
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--  -->
+      </div>
+
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+
+      <div class="forgotdiv" id="forgotdiv">
+        <div class="accclose" onclick="hideForgot(event)">x</div>
+        <div class="fortit">Forgot password</div>
+        <div id="forgoterror" class="error"></div>
+        <div class="field" style="margin-top: 30px;">
+          <input type="email" id="forgotmail" placeholder="Email Address" required="" />
+        </div>
+
+        <input style="
+            width: 100%;
+            background: #11b680;
+            border-radius: 5px;
+            border: none;
+            transition: all 0.4s ease;
+            margin-top: 20px;
+            height: 44px;
+            color: #ffff;
+          " type="submit" onclick="forgotFunc(event)" value="Send" />
+      </div>
+
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+
+      <div class="accountdiv" id="accountdiv">
+        <div class="accclose" onclick="hideAccount(event)">x</div>
+        <div class="acctit">My Account</div>
+        <div class="acccont">
+          <div class="acclabel">user name</div>
+          <div>
+            <input class="accinp" id="accname" type="text" value="" readonly />
+          </div>
+          <div class="acclabel">email</div>
+          <div>
+            <input class="accinp" id="accmail" type="text" value="" readonly />
+          </div>
+          <div class="acclabel">password</div>
+          <div>
+            <input class="accinp" id="accpass" type="text" value="" readonly />
+          </div>
+        </div>
+      </div>
+
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+
+      <div class="buydiv" id="buydiv">
+        <div class="accclose" onclick="hideBuy(event)">x</div>
+        <div class="acctit">Select payment method</div>
+
+        <!-- Crypto -->
+        <form style="display: none;" action="https://www.coinpayments.net/index.php" method="post">
+          <input type="hidden" id="coin_cmd" name="cmd" value="">
+          <input type="hidden" id="coin_reset" name="reset" value="">
+          <input type="hidden" id="coin_merchant" name="merchant" value="">
+          <input type="hidden" id="coin_item_name" name="item_name" value="">
+          <input type="hidden" id="coin_currency" name="currency" value="">
+          <input type="hidden" id="coin_amountf" name="amountf" value="">
+          <input type="hidden" id="coin_quantity" name="quantity" value="">
+          <input type="hidden" id="coin_allow_quantity" name="allow_quantity" value="">
+          <input type="hidden" id="coin_want_shipping" name="want_shipping" value="">
+          <input type="hidden" id="coin_success_url" name="success_url" value="">
+          <input type="hidden" id="coin_cancel_url" name="cancel_url" value="">
+          <input type="submit" id="payCrypto" value="" />
+        </form>
+        <button id="cryptobtn"
+          style="  border-radius: 10px; background: #2c2e2f; color: #fff; border: none; margin-bottom: 17px; width: 100%;"
+          onclick="buyCrypto(event)" type="submit" alt="Buy Now with CoinPayments.net"><img
+            style="border: none; width: 100%; cursor: pointer;"
+            src="https://www.coinpayments.net/images/pub/buynow-black2.png"
+            alt="Buy Now with CoinPayments.net"></button>
+
+        <div class="acccont">
+          <button onclick="buyStripe(event)" class="stripebut" type="submit">
+            Stripe
+          </button>
+        </div>
+
+        <div class="acccont">
+          <form action="https://secure.payu.in/_payment" style="display: none;" method="post">
+            <input type="hidden" id="paykey" name="key" value="" />
+            <input type="hidden" id="paytxn" name="txnid" value="" />
+            <input type="hidden" id="payinfo" name="productinfo" value="" />
+            <input type="hidden" id="payamt" name="amount" value="" />
+            <input type="hidden" id="payemail" name="email" value="" />
+            <input type="hidden" id="payname" name="firstname" value="" />
+            <input type="hidden" id="paysurl" name="surl" value="" />
+            <input type="hidden" id="payfurl" name="furl" value="" />
+            <input type="hidden" id="payhash" name="hash" value="" />
+            <input type="submit" id="paybut" value="" />
+          </form>
+          <button onclick="buyPayU(event)" class="stripebut" type="submit">
+            PayU
+          </button>
+        </div>
+        <div id="paypal-button-container"></div>
+      </div>
+
+
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <div class="wrapper" id="logincont">
+        <div class="loginclose" onclick="hideLogin()">x</div>
+
+        <div class="title-text">
+          <div class="title login">
+            Welcome Back!
+          </div>
+          <div class="title signup">
+            Create
+          </div>
+        </div>
+        <div class="form-container">
+          <div class="slide-controls">
+            <input type="radio" name="slide" id="login" checked />
+            <input type="radio" name="slide" id="signup" />
+            <label for="login" class="slide login">Login</label>
+            <label for="signup" class="slide signup">Create</label>
+            <div class="slider-tab"></div>
+          </div>
+
+          <!-- login action  -->
+          <div class="form-inner">
+            <div id="loginerror" class="error"></div>
+            <form class="login">
+              <div class="field" style="margin-top: 30px;">
+                <input type="email" id="loginmail" placeholder="Email Address" required />
+              </div>
+              <div class="field">
+                <input type="password" id="loginpass" placeholder="Password" required />
+              </div>
+              <div class="pass-link">
+                <a onclick="showForgot(event)">Forgot password?</a>
+              </div>
+              <div class="field btn">
+                <div class="btn-layer"></div>
+                <input type="submit" onclick="loginFunc(event)" value="Login" />
+              </div>
+              <div class="signup-link">No account? <a href="">Create</a></div>
+              <div class="containerlog1">
+                <div class="inner-containerlog2">
+                  or login via
+                </div>
+                <div class="inner-containerlog1">
+                  <!-- <a href="#"
+                    ><img
+                      src="https://img.icons8.com/fluency/50/000000/facebook-new.png"
+                  /></a> -->
+                  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                </div>
+              </div>
+            </form>
+
+            <!-- singup action -->
+            <form class="signup">
+              <div class="field">
+                <input type="text" id="upname" placeholder="Name" required />
+              </div>
+              <div class="field">
+                <input type="email" id="upmail" placeholder="Email Address" required />
+              </div>
+              <div class="field">
+                <input type="password" id="uppass" placeholder="Password" required />
+              </div>
+              <div class="field btn">
+                <div class="btn-layer"></div>
+                <input onclick="registerFunc(event)" type="submit" value="Create" />
+              </div>
+              <div class="login-link">
+                Already have account? <a href="">Login</a>
+              </div>
+
+              <!-- login or sign up using social accounts -->
+              <div class="containerlog1">
+                <div class="inner-containerlog2">
+                  or login via
+                </div>
+                <div class="inner-containerlog1">
+                  <!-- <a href="#"
+                    ><img
+                      src="https://img.icons8.com/fluency/50/000000/facebook-new.png"
+                  /></a> -->
+                  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+      <!--  -->
+
+      {% block bannercontainer %}
+
+      {% endblock bannercontainer %}
+    </div>
+  </div>
+
+  <div class="main-area">
+    {% block main-area %}
+    {% endblock main-area %}
+  </div>
+
+  <!-- Footer -->
+  <footer class="c-section c-section__footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <!--Accordion wrapper-->
+          <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+            <!-- Accordion card -->
+            <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="headingOne1">
+                <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
+                  aria-controls="collapseOne1">
+                  <h5 class="mb-0">
+                    Shop <i class="fa fa-angle-down rotate-icon"></i>
+                  </h5>
+                </a>
+              </div>
+
+              <!-- Card body -->
+              <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
+                data-parent="#accordionEx">
+                <div class="card-body">
+                  <ul>
+                    <li><a href="#formsscroll">PS4 Coins</a></li>
+                    <li><a href="#formsscroll">PS5 Coins</a></li>
+                    <li><a href="#formsscroll">XBOX ONE Coins</a></li>
+                    <li><a href="#formsscroll">Xbox S/X Coins</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Accordion card -->
+
+            <!-- Accordion card -->
+            <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="headingTwo2">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2"
+                  aria-expanded="false" aria-controls="collapseTwo2">
+                  <h5 class="mb-0">
+                    My Account <i class="fa fa-angle-down rotate-icon"></i>
+                  </h5>
+                </a>
+              </div>
+
+              <!-- Card body -->
+              <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"
+                data-parent="#accordionEx">
+                <div class="card-body">
+                  <ul>
+                    <li>MY Account</li>
+                    <li>My Orders</li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Accordion card -->
+
+            <!-- Accordion card -->
+            <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="headingThree3">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3"
+                  aria-expanded="false" aria-controls="collapseThree3">
+                  <h5 class="mb-0">
+                    Help Center <i class="fa fa-angle-down rotate-icon"></i>
+                  </h5>
+                </a>
+              </div>
+
+              <!-- Card body -->
+              <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3"
+                data-parent="#accordionEx">
+                <div class="card-body">
+                  <ul>
+                    <li>Contact Us</li>
+                    <li>FAQs</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Accordion card -->
+
+            <!-- Accordion card -->
+            <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="headingfour4">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapsefour4"
+                  aria-expanded="false" aria-controls="collapsefour4">
+                  <h5 class="mb-0">
+                    Wowfut <i class="fa fa-angle-down rotate-icon"></i>
+                  </h5>
+                </a>
+              </div>
+
+              <!-- Card body -->
+              <div id="collapsefour4" class="collapse" role="tabpanel" aria-labelledby="headingfour4"
+                data-parent="#accordionEx">
+                <div class="card-body">
+                  <ul>
+                    <li>About Us</li>
+                    <li>Blogs</li>
+                    <li><a href="http://127.0.0.1:8000/privacy_policy">Privacy Policy</a></li>
+                    <li><a href="http://127.0.0.1:8000/legal/notice/">Terms & Conditions</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Accordion card -->
+          </div>
+          <!-- Accordion wrapper -->
+
+          <div class="social-icons">
+            <h3>Contact Us</h3>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="cards-accept">
+            <h3>We Accept</h3>
+            <div class="cards-detail">
+              <ul class="list-unstyled">
+                <li>
+                  <a href="#"><img src="/static/images/c1.png" class="img-fluid" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="/static/images/c2.png" class="img-fluid" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="/static/images/c3.png" class="img-fluid" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="/static/images/c4.png" class="img-fluid" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="/static/images/c5.png" class="img-fluid" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="/static/images/c6.png" class="img-fluid" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="/static/images/c7.png" class="img-fluid" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="/static/images/c8.png" class="img-fluid" /></a>
+                </li>
+                <li>
+                  <a href="#"><img src="/static/images/c9.png" class="img-fluid" /></a>
+                </li>
+              </ul>
+
+              <!-- <div class="info">
+                <img src="/static/images/footer-info.png" class="img-fluid" />
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <script src="/static/js/jquery.nice-select.min.js"></script>
+  <script src="/static/js/jquery.flagstrap.js"></script>
+  <script type="text/javascript" src="/static/js/jquery.slicknav.min.js"></script>
+  <script type="text/javascript" src="/static/js/slick.min.js"></script>
+  <script type="text/javascript" src="/static/js/wow.js"></script>
+  <script type="text/javascript" src="/static/js/functions.js"></script>
+  <script>
+    const btn = document.querySelector("button");
+    const post = document.querySelector(".post");
+    const widget = document.querySelector(".star-widget");
+    const review = document.querySelector(".postareview");
+    btn.onclick = () => {
+      widget.style.display = "none";
+      review.style.display = "none";
+
+      post.style.display = "block";
+      return false;
+    };
+  </script>
+  <script>
+    const loginText = document.querySelector(".title-text .login");
+    const loginForm = document.querySelector("form.login");
+    const loginBtn = document.querySelector("label.login");
+    const signupBtn = document.querySelector("label.signup");
+    const signupLink = document.querySelector("form .signup-link a");
+    signupBtn.onclick = () => {
+      loginForm.style.marginLeft = "-50%";
+      loginText.style.marginLeft = "-50%";
+    };
+    loginBtn.onclick = () => {
+      loginForm.style.marginLeft = "0%";
+      loginText.style.marginLeft = "0%";
+    };
+    signupLink.onclick = () => {
+      signupBtn.click();
+      return false;
+    };
+  </script>
+
+  {% block Paypalscript %}
+  {% endblock Paypalscript %}
+  <!-- Krushil's Paypal Script Start-->
+  <!-- 
+<script>
+            var cur = "";
+            var quantity = "";
+            var price = "";
+            var name = "";
+
+            var ele1 = document.getElementsByClassName(
+              "c-section__banner__btn--fill"
+            )[0];
+            ele1 = ele1.getAttribute("data-id");
+
+            var ele2 = document.querySelectorAll("#ct")[0].checked;
+            if (ele2) {
+              ele2 = "comfort";
+            } else {
+              ele2 = "auction";
+            }
+
+            name = ele1 + "_" + ele2;
+            quantity = document.getElementById("coinamount").value
+            var selec = document.getElementById("cursym");
+            cur = selec.options[selec.selectedIndex].value;
+            // price= PRICE;
+            // price = document.getElementById("coinprice").value
+            // console.log(price)
+            
+  // order_id='{{order_id}}'
+  function createOrder(){
+    var url="api/paypal/create/"
+    fetch(url,{
+      method:'POST',
+      headers:{
+        "Content-type":'application/json',
+        "Authorization": "Bearer EN1hxhhsLOBZCUpezw9xRGlLiD_OCZbeRAGE8jg8I0iP6kxkQB6V1G3rUh9QG3KDxS5-HqD56kjinKzq",
+      },
+      body:JSON.stringify({
+
+        'cur':cur,
+        'quantity':quantity,
+        'price':PRICE,
+        'name':name,   
+      })
+    })
+  }
+  
+  
+  // Render the PayPal button into #paypal-button-container
+  paypal.Buttons({
+    style: {
+                color:  'blue',
+                shape:  'pill',
+                label:  'pay',
+                height: 40
+              },
+              
+              // Set up the transaction
+              createOrder: function(data, actions) {
+                return actions.order.create({
+              purchase_units: [{
+                  amount: {
+                    value: PRICE,
+                  }
+                }]
+              });
+          },
+
+        //   onApprove: function(data, actions) {
+        //         return actions.order.capture().then(function(orderData) {
+        //             // Successful capture! For demo purposes:
+        //             console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+        //             // actions.redirect('success');
+        //             var transaction = orderData.purchase_units[0].payments.captures[0];
+        //             alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+
+        //             // Replace the above to show a success message within this page, e.g.
+        //             // const element = document.getElementById('paypal-button-container');
+        //             // element.innerHTML = '';
+        //             // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+        //             // Or go to another URL:  actions.redirect('thank_you.html');
+        //         });
+        //     }
+
+
+        // }).render('#paypal-button-container');
+
+          // Call your server to finalize the transaction
+          // onApprove: function(data, actions) {
+          //       return actions.order.capture().then(function(orderData) {
+          onApprove: function (data, actions) {            
+            return fetch("api/success/", {
+                method: "POST",
+              })
+              .then(function (res) {
+                return res.json();
+              })
+              .then(function(orderData){
+                // Three cases to handle:
+                //   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
+                //   (2) Other non-recoverable errors -> Show a failure message
+                //   (3) Successful transaction -> Show confirmation or thank you
+
+                // This example reads a v2/checkout/orders capture response, propagated from the server
+                // You could use a different API or structure for your 'orderData'
+                var errorDetail =
+                  Array.isArray(orderData.details) && orderData.details[0];
+
+                if (
+                  errorDetail &&
+                  errorDetail.issue === "INSTRUMENT_DECLINED"
+                ) {
+                  return actions.restart(); // Recoverable state, per:
+                  // https://developer.paypal.com/docs/checkout/integration-features/funding-failure/
+                }
+
+                if (errorDetail) {
+                  var msg = "Sorry, your transaction could not be processed.";
+                  if (errorDetail.description)
+                    msg += "\n\n" + errorDetail.description;
+                  if (orderData.debug_id)
+                    msg += " (" + orderData.debug_id + ")";
+                  return alert(msg); // Show a failure message (try to avoid alerts in production environments)
+                }
+
+                // Successful capture! For demo purposes:
+                console.log(
+                  "Capture result",
+                  orderData,
+                  JSON.stringify(orderData, null, 2)
+                );
+                actions.redirect('success.html');
+                var transaction =
+                  orderData.purchase_units[0].payments.captures[0];
+                alert(
+                  "Transaction " +
+                    transaction.status +
+                    ": " +
+                    transaction.id +
+                    "\n\nSee console for all available details"
+                );
+
+                // Replace the above to show a success message within this page, e.g.
+                // const element = document.getElementById('paypal-button-container');
+                // element.innerHTML = '';
+                // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                // Or go to another URL:  actions.redirect('thank_you.html');
+              });
+          },
+        })
+        .render("#paypal-button-container");
+  </script> -->
+  <!-- Ruuning Above PaypalCode -->
+
+
+
+
+  <!-- Krushil's Paypal Script End-->
+
+
+
+  <script>
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      // console.log('ID: ' + profile.getId());
+      // console.log('Name: ' + profile.getName());
+      // console.log('Image URL: ' + profile.getImageUrl());
+      // console.log('Email: ' + profile.getEmail());
+
+      var id_token = googleUser.getAuthResponse().id_token;
+      // console.log("ID Token: " + id_token);
+      $.ajax({
+        type: "POST",
+        url: "/api/googlelogin/",
+        data: {
+
+          name: profile.getName(),
+          mail: profile.getEmail(),
+          token: id_token,
+        },
+        success: function (data) {
+          if (data.hasOwnProperty("error")) {
+            document.getElementById("loginerror").innerText = data["error"];
+            return;
+          } else {
+            document.getElementById("loginerror").innerText =
+              "Login successfull.";
+            setTimeout(function () {
+              window.location.reload();
+            }, 1000);
+          }
+        },
+        error: function (data) {
+          console.log("Error!");
+        },
+      });
+    }
+
+    function googlesignOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        console.log("User signed out.");
+        $.ajax({
+          type: "GET",
+          url: "/api/logout/",
+          success: function (data) {
+            setTimeout(function () {
+              window.location.reload();
+            }, 1000);
+          },
+          error: function (data) {
+            console.log("Error!");
+          },
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>

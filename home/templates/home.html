@@ -1,0 +1,606 @@
+{% extends "base.html" %}
+<!-- {% load static %} -->
+
+<!-- fetch title -->
+{% block title %}
+Home Page
+{% endblock title %}
+
+{% block removeiconmobile %}
+<div class="c-header__menu__nav--item price">
+    <select id="cursym1" class="nice-select"
+      onchange="changeOtherSelect(this,'cursym');changePrice();" name="price">
+      <option data-id="$" value="USD">$ USD</option>
+      <option data-id="€" value="EUR">€ EUR</option>
+      <option data-id="£" value="GBP">£ GBP</option>
+      <option data-id="$" value="AUD">$ AUD</option>
+      <option data-id="﷼" value="SAR">﷼ SAR</option>
+      <option data-id="د.إ" value="AED">د.إ AED</option>
+      <option data-id="₺" value="TRY">₺ TRY</option>
+    </select>
+  </div>
+{% endblock removeiconmobile %}
+
+
+{% block removeicons %}
+<li class="c-header__menu__nav--item">
+    <select id="cursym" class="nice-select" onchange="changeOtherSelect(this,'cursym1');changePrice();" name="price">
+        <option data-id="$" value="USD">$ USD</option>
+        <option data-id="€" value="EUR">€ EUR</option>
+        <option data-id="£" value="GBP">£ GBP</option>
+        <option data-id="$" value="AUD">$ AUD</option>
+        <option data-id="﷼" value="SAR">﷼ SAR</option>
+        <option data-id="د.إ" value="AED">د.إ AED</option>
+        <option data-id="₺" value="TRY">₺ TRY</option>
+    </select>
+</li>
+<!-- <li class="c-header__menu__nav--item">
+    <select class="nice-select" name="price">
+      <option
+        data-image="/static/images/engFlag.png"
+        >ENG
+      </option>
+      <option
+        data-image="/static/images/engFlag.png"
+        value="1"
+        >£ GBP</option
+      >
+      <option
+        data-image="/static/images/engFlag.png"
+        value="2"
+        >£ GBP</option
+      >
+      <option
+        data-image="/static/images/engFlag.png"
+        value="3"
+        >£ GBP</option
+      >
+    </select>
+  </li> -->
+<li class="c-header__menu__nav--item">
+    <div class="header-icons">
+        <a onclick="showAccount(event)" class="account">
+            <!-- <img src="/static/images/account.png" class="img-fluid" /></a> -->
+            <i class="fa fa-user-o" style="font-size:28px;color:#fff;cursor: pointer;"></i></a>
+        <a onclick="showOrders(event)" class="cart">
+            <!-- <img src="/static/images/cart.png" class="img-fluid" /></a> -->
+            <i class="material-icons" style="font-size:28px;color:#fff;cursor: pointer;">shopping_cart</i>
+        </div>
+</li>
+{% endblock removeicons %}
+
+
+<!-- fetch banner -->
+{% block bannercontainer %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="c-section__banner__info">
+                <!-- <h3 class="c-section__banner__title">
+            Safest option to buy FIFA 22 coins
+          </h3> -->
+                <div class="typingcontainer">
+                    <p>Safest option to </p>
+                    <p><span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+                </div>
+                <div class="c-section__banner__btns">
+                    <a data-id="playstation"
+                        class="btn btn-primary c-section__banner__btn c-section__banner__btn--fill"><span><img
+                                src="/static/images/playstation-icon.png" /></span>
+                                
+                        <p id="PSbtn">Play station</p></a>
+                    <a data-id="xbox"
+                        class="btn btn-outline c-section__banner__btn c-section__banner__btn--outline"><span><img
+                                src="/static/images/xbox-icon.png" /></span><p id="XBOXbtn">XBOX</p></a>
+                </div>
+
+
+                <!-- console -->
+                <div class="consoleselector" id="formsscroll">
+                    <!-- <h2>Console</h2> -->
+                    <input id="duration-1" type="radio" name="console" checked />
+                    <label for="duration-1"><span><img id="consoleimg"
+                                src="/static/images/playstation-icon.png" /></span>
+                        <div class="title">PS4</div>
+                        <div class="addition">Play Station</div>
+                    </label>
+                    <input id="duration-2" type="radio" name="console" />
+                    <label for="duration-2">
+                        <div class="title"><span><img id="consoleimg"
+                                    src="/static/images/playstation-icon.png" /></span>PS5
+                        </div>
+                        <div class="addition">Play Station</div>
+                    </label>
+                    <input id="duration-3" type="radio" name="console1" checked />
+                    <label for="duration-3">
+                        <div class="title"><span><img id="consoleimg" src="/static/images/xbox-icon.png" /></span>XBOX
+                            ONE
+                        </div>
+                        <div class="addition">XBOX</div>
+                    </label>
+                    <input id="duration-4" type="radio" name="console1" />
+                    <label for="duration-4">
+                        <div class="title"><span><img id="consoleimg" src="/static/images/xbox-icon.png" /></span>XBOX
+                            X/S
+                        </div>
+                        <div class="addition">XBOX</div>
+                    </label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock bannercontainer %}
+
+<!-- fetch main-area -->
+{% block main-area %}
+<div class="c-section c-section__form ">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <!--  -->
+                <form action="#">
+                    <div class="c-section__form__inner">
+                        <div class="form-group">
+                            <div class="options">
+                                <p>
+                                    <input onclick="changePrice()" type="radio" id="ct" name="option" checked>
+                                    <label for="ct">Comfort Trade</label>
+                                </p>
+                                <p>
+                                    <input onclick="changePrice()" type="radio" id="pa" name="option" disabled>
+                                    <label for="pa">Player Auction</label>
+                                </p>
+                            </div>
+                        </div>
+                        <!--  -->
+                        <!--  -->
+
+                        <div class="form-group">
+                            <label>Coins:</label>
+                            <input type="text" class="form-control" id="coinamount" onchange="changePrice()"
+                                maxlength="10" value="10000" />
+                        </div>
+                        <span id="kFormat" class="kFormat"></span>
+
+                        <div class="form-group">
+                            <label>Price:</label>
+                            <div class="symbol" id="symbol">$</div>
+                            <input id="coinprice" readonly type="text" class="form-control" value="0" />
+                        </div>
+                        <div class="form-group">
+                            <a onclick="showBill()" class="btn btn-primary btn-block"><span><img
+                                        src="/static/images/cart-shop.png" /></span>
+                                <span>Buy Now</span>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+                <!-- start form modal reciept -->
+                <div class="buybill" id="buybill">
+                    <div class="accclosebill" onclick="hideBill(event)">x</div>
+                    <div class="billcontainer">
+                        <div class="invoice">
+                            <header id="invoiceheader">
+                                <section>
+                                    <h1>Invoice</h1>
+                                </section>
+                            </header>
+                            <main id="invoicemain">
+                                <section>
+                                    <span>Console</span>
+                                    <span>Coin</span>
+                                    <span>Price</span>
+                                </section>
+                                <section id="yourbill">
+                                </section>
+                            </main>
+                            <div class="row" id="rowinvoicecoupon">
+                                <div class="ml-auto" id="invoicecoupon">
+
+                                    <input id="couponcode" type="text" maxlength="10" placeholder="Coupon Code"
+                                        data-value="" value="">
+
+                                    <div id="error_coupon"></div>
+                                    <button id="couponsubmit" onclick="couponCode()" type="submit">Apply Coupon</button>
+                                </div>
+                            </div>
+                            <footer id="invoicefooter">
+                                <a onclick="showBuy(event)" type="submit" class="btn btn-primary btn-block"><span><img
+                                            src="/static/images/cart-shop.png" /></span>
+                                    <span>Checkout</span></a>
+                                <!-- <a href="#0">Pay Now</a> -->
+                            </footer>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <!--  -->
+                    <!--  -->
+                </div>
+                <!-- end form modal reciept -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="c-section c-section__testimonals reveal">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="c-section__contact__title" style="text-align: center; margin-bottom: 50px;">
+                    Customer Reviews
+                </h3>
+                <!-- Review -->
+                <section id="testim" class="testim">
+
+
+
+
+                </section>
+
+                <script src="https://use.fontawesome.com/1744f3f671.js"></script>
+                <!-- Review End -->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="c-section c-section__services">
+    <div class="container revealleftright">
+        <div class="row equal-height">
+            <div class="col-6 col-lg-3">
+                <div class="c-section__services__card">
+                    <div class="top-area">
+                        <p class="c-section__services__card__icon">
+                            <img src="/static/images/user.png" class="img-fluid" />
+                        </p>
+                        <p><span class="count">305603</span< /p>
+                    </div>
+                    <div class="bottom-info">
+                        <h3 class="c-section__services__card__title">
+                            305 603 Customers Trust Us
+                        </h3>
+                        <p class="c-section__services__card__text">
+                            Be the part of the most innovative item shop.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="c-section__services__card">
+                    <div class="top-area">
+                        <p class="c-section__services__card__icon">
+                            <img src="/static/images/satisfied-user.png" class="img-fluid" />
+                        </p>
+
+                        <p><span class="count">100</span>%</p>
+                    </div>
+                    <div class="bottom-info">
+                        <h3 class="c-section__services__card__title">
+                            Satisfied User
+                        </h3>
+                        <p class="c-section__services__card__text">
+                            Your satisfaction is our number one priority
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="c-section__services__card">
+                    <div class="top-area">
+                        <p class="c-section__services__card__icon">
+                            <img src="/static/images/sheild.png" class="img-fluid" />
+                        </p>
+                        <p><span class="count">100</span>%</p>
+                    </div>
+                    <div class="bottom-info">
+                        <h3 class="c-section__services__card__title">
+                            100% Safe payments Guaranteed Shipping
+                        </h3>
+                        <p class="c-section__services__card__text">
+                            Most of our orders are processed in 15 minutes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            1
+            <div class="col-6 col-lg-3">
+                <div class="c-section__services__card">
+                    <div class="top-area">
+                        <p class="c-section__services__card__icon">
+                            <img src="/static/images/msg.png" class="img-fluid" />
+                        </p>
+                        <p>24/7</p>
+                    </div>
+                    <div class="bottom-info">
+                        <h3 class="c-section__services__card__title">
+                            Technical Support
+                        </h3>
+                        <p class="c-section__services__card__text">
+                            We are always here to help. Chat with us in real time.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="c-section c-section__delivery " id="deliveryscroll">
+    <div class="container reveal">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="c-section__delivery__inner">
+                    <div class="c-section__delivery__slider js-delivery-slider">
+                        <div class="c-section__delivery__slider__item">
+                            <div class="c-section__delivery__slider__info">
+                                <h3 class="c-section__delivery__title">
+                                    How does delivery <br /> work
+                                </h3>
+
+                                <div class="c-section__delivery__btns">
+                                    <a href="#"
+                                        class="btn btn-primary c-section__delivery__btn c-section__delivery__btn--fill">Comfort
+                                        Trade</a>
+                                    <a href="#"
+                                        class="btn btn-outline c-section__delivery__btn c-section__delivery__btn--outline">Player
+                                        Auction</a>
+                                </div>
+
+
+
+                                <h4 class="c-section__delivery__req-title">
+                                    FILL THE REQUIRED DETAILS
+                                </h4>
+                                <p class="c-section__delivery__text">
+                                    After successful payment of the order you'll be taken to
+                                    page with two fields: e-mail and password Please,
+                                    fulfill these fields with your EA account details.
+                                </p>
+                            </div>
+                            <div id="youtubevideo">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/ORG9O0Yvpf0"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <div class="c-section__delivery__slider__item">
+                            <div class="c-section__delivery__slider__info">
+                                <h3 class="c-section__delivery__title">
+                                    How does delivery <br />
+                                    work
+                                </h3>
+
+                                <div class="c-section__delivery__btns">
+                                    <a href="#"
+                                        class="btn btn-primary c-section__delivery__btn c-section__delivery__btn--fill">Comfort
+                                        Trade</a>
+                                    <a href="#"
+                                        class="btn btn-outline c-section__delivery__btn c-section__delivery__btn--outline">Player
+                                        Auction</a>
+                                </div>
+
+                                <h4 class="c-section__delivery__req-title">
+                                    FILL THE REQUIRED DETAILS
+                                </h4>
+                                <p class="c-section__delivery__text">
+                                    After successful payment of the order you'll be taken to
+                                    page with two fields: e-mail and password Please,
+                                    fulfill these fields with your EA account details.
+                                </p>
+                            </div>
+                            <div id="youtubevideo">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/ORG9O0Yvpf0"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                        <div class="c-section__delivery__slider__item">
+                            <div class="c-section__delivery__slider__info">
+                                <h3 class="c-section__delivery__title">
+                                    How does delivery <br />
+                                    work
+                                </h3>
+
+                                <div class="c-section__delivery__btns">
+                                    <a href="#"
+                                        class="btn btn-primary c-section__delivery__btn c-section__delivery__btn--fill">Comfort
+                                        Trade</a>
+                                    <a href="#"
+                                        class="btn btn-outline c-section__delivery__btn c-section__delivery__btn--outline">Player
+                                        Auction</a>
+                                </div>
+
+                                <h4 class="c-section__delivery__req-title">
+                                    FILL THE REQUIRED DETAILS
+                                </h4>
+                                <p class="c-section__delivery__text">
+                                    After successful payment of the order you'll be taken to
+                                    page with two fields: e-mail and password Please,
+                                    fulfill these fields with your EA account details.
+                                </p>
+                            </div>
+                            <div id="youtubevideo">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/ORG9O0Yvpf0"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                        <div class="c-section__delivery__slider__item">
+                            <div class="c-section__delivery__slider__info">
+                                <h3 class="c-section__delivery__title">
+                                    How does delivery <br />
+                                    work
+                                </h3>
+
+                                <div class="c-section__delivery__btns">
+                                    <a href="#"
+                                        class="btn btn-primary c-section__delivery__btn c-section__delivery__btn--fill">Comfort
+                                        Trade</a>
+                                    <a href="#"
+                                        class="btn btn-outline c-section__delivery__btn c-section__delivery__btn--outline">Player
+                                        Auction</a>
+                                </div>
+
+                                <h4 class="c-section__delivery__req-title">
+                                    FILL THE REQUIRED DETAILS
+                                </h4>
+                                <p class="c-section__delivery__text">
+                                    After successful payment of the order you'll be taken to
+                                    page with two fields: e-mail and password Please,
+                                    fulfill these fields with your EA account details.
+                                </p>
+                            </div>
+                            <div id="youtubevideo">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/ORG9O0Yvpf0"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="c-section__delivery__actions">
+                        <div class="c-section__delivery__actions--items">
+                            <span class="pagingInfo"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="c-section c-section__contact reveal">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="c-section__contact__title">
+                    Hey, Let’s Keep in touch
+                </h3>
+                <p class="c-section__contact__tag-line">
+                    Get exclusive access for offers and new services.
+                </p>
+
+                <div class="c-section__contact__email-form">
+                    <form>
+                        <div class="form-group">
+                            <div class="form-input">
+                                <input id="mailboxin" type="email" class="form-control"
+                                    placeholder="Enter your email" />
+                            </div>
+                            <button type="submit" class="btn btn-primary" onclick="sendMail()">
+                                Send
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main-area %}
+{% block Paypalscript %}
+
+
+
+<!-- <script type="text/javascript"
+    src="https://www.paypal.com/sdk/js?client-id=Ac0NPdL33LNrl5iM_NScu2w3dFOV89XcgyBT71ttVa_bhYERIva2kPZWazHW3KaTpFBJW-FTePFExs7N&currency=USD"></script> -->
+<script type="text/javascript"
+    src="https://www.paypal.com/sdk/js?client-id=AV89D4bAIY_QyFNJMqv0pJO85MOGA-kUcFPTFM8rq2OIOh606P2FxS5GDj-oUIWuU7xfdJGhR986lF86&currency=USD"></script>
+
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!-- RUN PROPERLY -->
+<script>
+    var cur = "";
+    var quantity = "";
+    var price = "";
+    var name = "";
+
+    var ele1 = document.getElementsByClassName("c-section__banner__btn--fill")[0];
+    ele1 = ele1.getAttribute("data-id");
+
+    var ele2 = document.querySelectorAll("#ct")[0].checked;
+    if (ele2) {
+        ele2 = "comfort";
+    } else {
+        ele2 = "auction";
+    }
+    name = ele1 + "_" + ele2;
+    var console_ps = document.querySelectorAll("#duration-1")[0].checked;
+    var console_xbox = document.querySelectorAll("#duration-3")[0].checked;
+    var console_name = "";
+    if (ele1 == "playstation") {
+        if (console_ps) {
+            console_name = "PS4";
+        } else {
+            console_name = "PS5";
+        }
+    } else {
+        if (console_xbox) {
+            console_name = "Xbox ONE";
+        } else {
+            console_name = "Xbox X/S";
+        }
+    }
+    quantity = document.getElementById("coinamount").value;
+    var selec = document.getElementById("cursym");
+    cur = selec.options[selec.selectedIndex].value;
+    price = PRICE;
+    paypal.Buttons({
+
+        createOrder: (data, actions) => {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: PRICE,
+                        currency_code: CUR_NAME, // Can also reference a variable or function
+                    }
+                }]
+            });
+        },
+        onApprove: function (data, actions) {
+            return actions.order.capture().then(function (details) {
+                status = details.status;
+                id = details.id;
+                payer = details.payer.name.given_name;
+                console.log(details)
+                quantity = document.getElementById("coinamount").value;
+
+                email = details.payer.email_address;
+
+                // redirect(surl)
+                data = id + "?" + email + "?"+ payer + "?"+ console_name + "?"+ name + "?"+ cur + "?"+ PRICE + "?"+ quantity + "?" + status
+                window.location.replace("http://127.0.0.1:8000/api/paydata?data="+ data);
+                
+                // fetch('api/paypal/create/')
+                // fetch('api/success/2')
+            })
+        },
+        onCancel: function (data) {
+            alert("Your payment Canceled")
+        },
+        onError: function (err) {
+            alert("Something wrong")
+        },
+    }).render("#paypal-button-container");
+</script>
+
+
+
+{% endblock Paypalscript %}
