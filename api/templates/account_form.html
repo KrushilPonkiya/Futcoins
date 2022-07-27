@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block css_link %}
+<link rel="stylesheet" href="/static/css/account_form.css">
+{% endblock css_link %}
+{% block title %}EA Account details{% endblock title %}
+
+
+
+{% block removeicons %}
+{% endblock removeicons %}
+
+
+
+{% block main-area %}
+<div class="container">
+    <h1 class="accountheader">EA Account Details</h1>
+    <img src="/static/images/ea_logo.png" id="ea_logo" alt="">
+    <br><a class="eaname">EA Account details</a>
+    <p class="keypoint">
+        <i class="material-icons" style="font-size:15px">&#xe0da;</i>
+        To use this method,your account must have access to <br>the transfer market in the FUT Web App.
+    </p>
+    <form method="post" action="{% url 'handleaaccdetails' %}" id="form" class="validate">
+        {% csrf_token %}
+        <div class="form-field">
+            <label for="EA_Account_login">EA Account Login</label>
+            <input type="email" name="EAAccountlogin" id="email-input" placeholder="example@domain.com" required />
+        </div>
+
+        <div class="form-field">
+            <label for="EA_Account_Password">EA Account Password</label>
+            <input type="password" name="EAAccountPassword" id="password-input" required />
+        </div>
+
+        <div class="form-field">
+            <label for="Backup_Codes">Backup Codes</label>
+            <input type="text" name="BackupCodes" id="backup-input" required/>
+        </div>
+        <a onclick="showBackupcode(event)"  class="backuptitle"><span><u>How to get Backup-Codes ?</u></span>
+        </a>
+        <!-- start form modal reciept -->
+        <div class="Backupcodes" id="Backupcodes" style="display: none;">
+            <div class="accclosebackupcode" onclick="hideBackupcode(event)">x</div>
+            <div class="acctitbackupcode">Get backup codes</div>
+            <div>
+                <h3>WHERE DO I FIND MY FIFA BACKUP CODES?</h3>
+                <p>
+                    To check your FIFA backup codes you need to login to the Origin's website.Once the page is loaded you will need to log in to your Origin account and enable the "Login Verification" to be able to see your backup codes or create new ones if they are already used.</p>
+                <img src="/static/images/backupcode.png" alt="">
+                <div id="backupvideo">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/nsoiTPtRF0A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/ORG9O0Yvpf0"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe> -->
+                </div>
+                
+            </div>
+        </div>
+        <!-- end form modal reciept -->
+
+
+        <div class="form-field">
+            <label for="Email_for_Communication">Email for communication</label>
+            <input type="email" name="EmailforCommunication" id="comemail-input" placeholder="example@domain.com"
+                required />
+        </div>
+
+        <div class="form-field">
+            <label for="Whatsapp_Number">Whatsapp Number</label>
+            <input type="tel" max="10" name="WhatsappNumber" id="num-input" placeholder="" />
+        </div>
+
+        <p class="processpoint"><i style="font-size:15px" class="fa">&#xf017;</i>
+            Order Proccessing time is from 10 to 180 minutes. Please note that large orders required more time then
+            small ones.
+        </p>
+
+        <div class="form-field" id="submit">
+            <input type="submit" value="Sign Up" />
+        </div>
+        <!-- onclick="handleeaaccount(event)" -->
+    </form>
+
+</div>
+
+{% endblock main-area %}
