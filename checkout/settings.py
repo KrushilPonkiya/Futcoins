@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-kd0!m04)ddk@nq-_1)r10jvv@luk3+1y)p2-!4qzp2xjk4bfh%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [127.0.0.1]
+ALLOWED_HOSTS = ['127.0.0.1','fifacoins.herokuapp.com']
 
 
 # Application definition
