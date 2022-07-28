@@ -117,11 +117,11 @@ USE_I18N = True
 
 USE_TZ = True
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIR =[
     os.path.join(BASE_DIR, 'static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/Media/'
@@ -149,3 +149,8 @@ COINPAYMENTS_API_SECRET = '5E896241723Eb2fa48361bc97286c6880974F6b1e89BF1be21F5D
 # paypal-setting
 # PAYPAL_RECEIVER_EMAIL = 'Bizkrushil@gmail.com'
 # PAYPAL_TEST=True
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
