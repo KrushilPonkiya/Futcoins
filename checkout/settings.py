@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-kd0!m04)ddk@nq-_1)r10jvv@luk3+1y)p2-!4qzp2xjk4bfh%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','fifacoins.herokuapp.com']
 
@@ -119,7 +119,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIR =[
+STATICFILES_DIR=[
     os.path.join(BASE_DIR, 'static')
 ]
 
